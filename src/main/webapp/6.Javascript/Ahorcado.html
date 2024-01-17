@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>AHORCADO</title>
+<link rel="stylesheet" href="./css/CSSAhorcado.css">
+</head>
+<body>
+<div id="cajaPrincipal">
+	<div class="espacios">
+		<input id="espacio1" maxlength="1" type="text" name="espacio1" readonly>
+		<input id="espacio2" maxlength="1" type="text" name="espacio2" readonly>
+		<input id="espacio3" maxlength="1" type="text" name="espacio3" readonly>
+		<input id="espacio4" maxlength="1" type="text" name="espacio4" readonly>
+		<input id="espacio5" maxlength="1" type="text" name="espacio5" readonly>
+	</div>
+
+
+	<div class="campoIntroLetra">
+		<p>Letra:
+		<input onkeyup="toUpperCase()" maxlength="1" id="campoLetra" type="text" name="letra" autofocus>
+		</p>
+	</div>
+	<div class="botonera">
+		<input class="botonProbar" onclick="setLetter()" type="button" value="Probar">
+		<input class="botonReset" onclick="reiniciar()" type="button" value="Reiniciar">
+		<br>
+		<h3>Tienes <span id="intentos">6</span> oportunidades</h3>
+		<h2 id="mensaje"></h2>
+	</div>
+
+</div>
+<div id="fondo">
+</div>
+</body>
+<script type="text/javascript" src="./js/JSAhorcado.js"></script> 
+</html>
