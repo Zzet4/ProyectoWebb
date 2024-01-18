@@ -7,7 +7,6 @@ let contadorIntentos = 6;
 function toUpperCase(){
 	letra = document.getElementById("campoLetra").value
 	document.getElementById("campoLetra").value = letra.toUpperCase()
-	
 }
 
 function reiniciar(){

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+<!-- ___________________CÓDIGO CSS__________________ -->     
+    
     <style>
         body{
             background-image: url(./img/fondoMath.jpg);
@@ -32,44 +34,72 @@
             align-items: center;
         }
     </style>
+    
+    
+    
+<!-- ___________________CÓDIGO JAVASCRIPT__________________ -->   
+
     <script type="text/javascript">
        let numero = "0";
        let operacion = "";
+       
        function operar(signo){
         operacion = signo
         console.log("Operar")
 //        alert("Operar")
-        cajaNumero = document.getElementById("numeroARecoger")
-        numero = cajaNumero.value;
+        cajaNumero = $("#numeroARecoger")
+        numero = cajaNumero.val();
         console.log("Numero: "+numero)
 //        alert(numero)
-        cajaNumero.value = "0"
-        document.getElementById("numeroARecoger").focus();
+        cajaNumero.val("")
+        $("#numeroARecoger").focus();
 
        }
 
-       function resultado(){
-        numero2 = document.getElementById("numeroARecoger").value
+       function resultadoOperacion(){
+        numero2 = $("#numeroARecoger").val()
         console.log("numero2: "+numero2)
+        resultado = 44
 
-        if(operacion=="+"){
-            resultado = Number(numero) + Number(numero2)
-        }else if(operacion=="-"){
+        if(operacion=="suma"){
+            resultado = numero.val() + numero2.val()
+            console.log("resultado:--> "+ resultado)
+        }else if(operacion=="resta"){
             resultado = Number(numero) - Number(numero2)
-        }else if(operacion=="*"){
+        }else if(operacion=="multiplicacion"){
             resultado = Number(numero) * Number(numero2)
-        }else if(operacion=="/"){
+        }else if(operacion=="division"){
             resultado = Number(numero) / Number(numero2)
         }
         
-        console.log("resultado: "+resultado)
-        document.getElementById("resultadoAMostrar").value = resultado
+        console.log("resultado: " + resultado)
+        console.log("resultado")
+        $("#resultadoAMostrar").val(resultado)
 
-        document.getElementById("numeroARecoger").value = 0
-        document.getElementById("numeroARecoger").focus();
+        $("#numeroARecoger").val("")
+        $("#numeroARecoger").focus();
 
        }
-    </script>
+    </script>    
+    
+<!-- ___________________CÓDIGO JQUERY__________________ -->    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script>
+
+		 $(document).ready(function(){ 
+		
+			 $('#suma, #resta, #multiplicacion, #division').click(function(){
+				var signoOperacion = $(this)
+				console.log("Holaaaa" + signoOperacion)
+				operar(signoOperacion);
+		     }); 
+			 
+ 			 $('#botonResultado').click(function(){
+				resultadoOperacion();
+		     });    
+		});
+	 </script>
 </head>
 <body>
     <div id="cuerpoCalculadora">
@@ -88,13 +118,13 @@
                 <input id="resultadoAMostrar" type="number" name="resultado" readonly></input>
                 <div id="botoneraPrincipal">
                     <!-- <button onclick="operar()">Operar</button> -->
-                    <a href="#" onclick="operar('+')"><img src="./img/botonSuma.png"></a>
-                    <a href="#" onclick="operar('-')"><img src="./img/botonRestaa.png"></a>
-                    <a href="#" onclick="operar('*')"><img src="./img/botonmultiplicacion.png"></a>
-                    <a href="#" onclick="operar('/')"><img src="./img/botonDivision.png"></a>
+                    <a href="#"><img id="suma" src="./img/botonSuma.png"></a>
+                    <a href="#"><img id="resta" src="./img/botonRestaa.png"></a>
+                    <a href="#"><img id="multiplicacion" src="./img/botonmultiplicacion.png"></a>
+                    <a href="#"><img id="division" src="./img/botonDivision.png"></a>
                 </div>
                 <div id="botonResultado" style="width: 100%;">
-                    <a href="#" onclick="resultado()"><img class="botonCalcular" src="./img/botonCalcular.png"></a>
+                    <a href="#" ><img class="botonCalcular" src="./img/botonCalcular.png"></a>
                 </div>
 
             </fieldset>
